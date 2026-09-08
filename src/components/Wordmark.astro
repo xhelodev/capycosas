@@ -1,0 +1,17 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className = "" } = Astro.props;
+---
+
+<a
+  class:list={[
+    "font-serif font-[620] tracking-tight text-forest no-underline",
+    className,
+  ]}
+  href="#inicio"
+>
+  Capy<span class="text-terra">cosas</span>
+</a>

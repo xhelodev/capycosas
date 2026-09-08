@@ -1,0 +1,37 @@
+---
+import type { Product } from "../data/products";
+
+interface Props {
+  product: Product;
+}
+
+const { product } = Astro.props;
+---
+
+<article
+  class="flex min-h-full flex-col overflow-hidden rounded-[1.15rem] border border-line bg-paper transition-[transform,box-shadow] duration-150 hover:-translate-y-0.5 hover:shadow-[0_18px_40px_rgba(26,51,41,0.08)] motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+>
+  <img
+    class="aspect-square w-full bg-sand-deep object-cover"
+    src={product.image}
+    alt={product.alt}
+    width="1024"
+    height="1024"
+    loading="lazy"
+  />
+  <div class="flex flex-1 flex-col gap-1.5 p-4 pb-5">
+    <h3 class="m-0 font-serif text-[1.35rem] font-[560] tracking-tight">
+      {product.name}
+    </h3>
+    <p class="m-0 text-[0.98rem] text-muted">{product.description}</p>
+    <div class="mt-auto flex items-baseline justify-between gap-2.5 pt-3.5">
+      <span class="font-serif text-[1.25rem] text-forest"
+        >USD {product.price}</span
+      >
+      <span
+        class="rounded-full bg-terra-soft px-2 py-0.5 text-[0.72rem] font-semibold uppercase tracking-wide text-terra-deep"
+        >Ejemplo</span
+      >
+    </div>
+  </div>
+</article>

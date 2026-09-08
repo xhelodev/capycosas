@@ -1,0 +1,32 @@
+---
+import Wordmark from "./Wordmark.astro";
+import Button from "./Button.astro";
+---
+
+<header
+  class="sticky top-0 z-10 flex h-[76px] items-center border-b border-line bg-sand/88 backdrop-blur-[14px] max-[720px]:h-auto max-[720px]:py-3"
+>
+  <div
+    class="mx-auto flex w-full max-w-[1120px] items-center justify-between gap-4 px-5 max-[720px]:flex-wrap"
+  >
+    <Wordmark class="text-[1.45rem]" />
+    <nav
+      class="flex items-center gap-5 max-[720px]:w-full max-[720px]:justify-between max-[720px]:gap-2.5 max-[720px]:pb-0.5"
+      aria-label="Principal"
+    >
+      <a
+        class="text-[0.95rem] font-[520] text-forest-mid no-underline hover:text-terra-deep max-[720px]:text-[0.88rem]"
+        href="#productos">Productos</a
+      >
+      <a
+        class="text-[0.95rem] font-[520] text-forest-mid no-underline hover:text-terra-deep max-[720px]:text-[0.88rem]"
+        href="#como-funciona">Cómo funciona</a
+      >
+      <a
+        class="text-[0.95rem] font-[520] text-forest-mid no-underline hover:text-terra-deep max-[720px]:text-[0.88rem]"
+        href="#nosotros">Nosotros</a
+      >
+      <Button href="#pedido" class="px-4 py-[0.68rem]">Hacé tu pedido</Button>
+    </nav>
+  </div>
+</header>
