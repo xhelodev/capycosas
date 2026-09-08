@@ -1,0 +1,29 @@
+---
+import Kicker from "./Kicker.astro";
+import Button from "./Button.astro";
+---
+
+<section class="px-5 pb-[4.4rem] pt-0" id="pedido">
+  <div class="mx-auto max-w-[1120px]">
+    <div
+      class="grid grid-cols-1 items-center gap-6 rounded-[1.3rem] border border-line bg-paper p-6 min-[901px]:flex min-[901px]:justify-between"
+    >
+      <div>
+        <Kicker>Pedido</Kicker>
+        <h2
+          class="m-0 font-serif text-[clamp(1.7rem,3vw,2.4rem)] font-[560] tracking-tight text-forest"
+        >
+          Escribinos qué quiere tu capy.
+        </h2>
+        <p class="m-0 mt-2 max-w-[36rem] text-muted">
+          Contanos cuál de las seis piezas te interesa. Los precios de arriba son
+          de muestra, en USD, y este mail no confirma una compra.
+        </p>
+      </div>
+      <Button
+        href="mailto:hola@capycosas.com?subject=Pedido%20Capycosas"
+        class="shrink-0">Hacé tu pedido</Button
+      >
+    </div>
+  </div>
+</section>

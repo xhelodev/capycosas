@@ -1,0 +1,32 @@
+---
+import Kicker from "./Kicker.astro";
+import ProductCard from "./ProductCard.astro";
+import { products } from "../data/products";
+---
+
+<section class="px-5 py-[4.4rem]" id="productos">
+  <div class="mx-auto max-w-[1120px]">
+    <div
+      class="mb-7 grid grid-cols-1 items-end gap-4 min-[901px]:grid-cols-[1fr_auto]"
+    >
+      <div>
+        <Kicker>La lista corta</Kicker>
+        <h2
+          class="m-0 font-serif text-[clamp(2rem,3.6vw,3.1rem)] font-[560] tracking-tight text-forest"
+        >
+          Seis cosas. Las justas.
+        </h2>
+      </div>
+      <p class="m-0 max-w-[18rem] text-[0.88rem] text-forest-mid">
+        Los precios están en dólares y son de ejemplo, para este primer borrador.
+        No es una tienda abierta todavía.
+      </p>
+    </div>
+
+    <div
+      class="grid grid-cols-1 gap-[1.15rem] min-[721px]:grid-cols-2 min-[901px]:grid-cols-3"
+    >
+      {products.map((product) => <ProductCard product={product} />)}
+    </div>
+  </div>
+</section>
