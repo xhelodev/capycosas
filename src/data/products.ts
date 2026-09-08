@@ -20,7 +20,7 @@ export const products: Product[] = [
     description: "Un círculo blando para flotar y recostarse sobre el agua.",
     price: 64,
     image: "/images/cama.jpg",
-    alt: "Cama circular blanca flotando en agua clara.",
+    alt: "Cama circular crema flotando en agua oscura de estanque.",
   },
   {
     name: "Cepillo suave",
