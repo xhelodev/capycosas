@@ -43,7 +43,7 @@ export const products: Product[] = [
     description: "Agua baja y borde bajo, para la hora en que aprieta el calor.",
     price: 48,
     image: "/images/pileta.jpg",
-    alt: "Pileta chica con agua en un patio cálido, lista para una siesta húmeda.",
+    alt: "Pileta chica de borde bajo en un patio de terracota, con un capibara descansando en el agua.",
   },
   {
     name: "Vitamina para roedores grandes",
