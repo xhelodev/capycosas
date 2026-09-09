@@ -9,6 +9,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "compress:images": "node scripts/compress-images.mjs",
     "astro": "astro"
   },
   "dependencies": {
