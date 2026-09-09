@@ -5,7 +5,7 @@ Sitio de Capycosas — productos para capibaras, no merch para humanos.
 ## Requisitos
 
 - Node.js 22.12 o superior
-- MongoDB Atlas (opcional en local; obligatorio en Vercel)
+- MongoDB Atlas (opcional; el sitio funciona sin URI usando productos seed)
 
 ## Desarrollo
 
@@ -26,9 +26,9 @@ El catálogo vive en MongoDB Atlas. La conexión es **solo del lado del servidor
 | `MONGODB_URI` | Connection string de Atlas (servidor / scripts) |
 | `MONGODB_DB` | Base de datos (default: `capycosas`) |
 
-**Sin `MONGODB_URI` en local o CI:** la app usa los datos de respaldo en `src/data/products.ts` (seed/fallback).
+**Sin `MONGODB_URI` (local, CI o Vercel):** el sitio sirve los productos seed de `src/data/products.ts`.
 
-**Con `MONGODB_URI`:** `getProducts()` lee la colección `products` (`active: true` o sin campo `active`), ordenados por `order` y nombre.
+**Con `MONGODB_URI`:** `getProducts()` lee la colección `products` en Atlas (`active: true` o sin campo `active`), ordenados por `order` y nombre.
 
 #### Poblar la base
 
@@ -55,7 +55,7 @@ El script hace upsert de los seis productos actuales por `slug`.
 npm run build
 ```
 
-El build no requiere Atlas si `MONGODB_URI` no está definida (usa el fallback estático). En producción en Vercel, `MONGODB_URI` debe estar configurada.
+El build no requiere Atlas: sin `MONGODB_URI` se usan los productos seed en todos los entornos.
 
 Para previsualizar el build local:
 

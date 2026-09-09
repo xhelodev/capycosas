@@ -1,8 +1,15 @@
 import { seedProducts, type Product } from "../data/products";
 import { getMongoClient, getMongoDbName } from "./db";
 
-function isDeployedProduction(): boolean {
-  return process.env.VERCEL === "1" || process.env.NODE_ENV === "production";
+let warnedMissingUri = false;
+
+function warnMissingUriOnce(): void {
+  if (!warnedMissingUri) {
+    console.warn(
+      "MONGODB_URI is not set; serving seed products from src/data/products.ts",
+    );
+    warnedMissingUri = true;
+  }
 }
 
 function getFallbackProducts(): Product[] {
@@ -34,23 +41,27 @@ export async function getProducts(): Promise<Product[]> {
   const uri = process.env.MONGODB_URI;
 
   if (!uri) {
-    if (isDeployedProduction()) {
-      throw new Error(
-        "MONGODB_URI is required in production. Set it in your Vercel project environment variables.",
-      );
-    }
+    warnMissingUriOnce();
     return getFallbackProducts();
   }
 
-  const client = await getMongoClient();
-  const collection = client.db(getMongoDbName()).collection("products");
+  try {
+    const client = await getMongoClient();
+    const collection = client.db(getMongoDbName()).collection("products");
 
-  const documents = await collection
-    .find({
-      $or: [{ active: true }, { active: { $exists: false } }],
-    })
-    .sort({ order: 1, name: 1 })
-    .toArray();
+    const documents = await collection
+      .find({
+        $or: [{ active: true }, { active: { $exists: false } }],
+      })
+      .sort({ order: 1, name: 1 })
+      .toArray();
 
-  return documents.map((doc) => mapDocumentToProduct(doc));
+    return documents.map((doc) => mapDocumentToProduct(doc));
+  } catch (error) {
+    const message =
+      error instanceof Error ? error.message : "Unknown database error";
+    throw new Error(`Failed to load products from MongoDB: ${message}`, {
+      cause: error,
+    });
+  }
 }
