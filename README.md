@@ -33,3 +33,10 @@ npm run preview
 - `src/components/` — componentes reutilizables
 - `src/data/products.ts` — catálogo de productos
 - `public/images/` — fotos del sitio
+- `scripts/compress-images.mjs` — comprime JPEGs de `capycosas/images/` a `public/images/` (menos de 400KB cada uno)
+
+Para reemplazar fotos, copiá los originales a `capycosas/images/` y corré:
+
+```bash
+npm run compress:images
+```
