@@ -1,7 +1,9 @@
 ---
 import Kicker from "./Kicker.astro";
 import ProductCard from "./ProductCard.astro";
-import { products } from "../data/products";
+import { getProducts } from "../lib/products";
+
+const products = await getProducts();
 ---
 
 <section class="px-5 py-[4.4rem]" id="productos">
