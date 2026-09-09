@@ -4,17 +4,21 @@
   --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Fraunces", ui-serif, Georgia, serif;
 
-  --color-sand: #f4ece1;
-  --color-sand-deep: #e7d9c8;
-  --color-paper: #fbf7f1;
+  --color-sand: #f3e6d4;
+  --color-sand-deep: #e4d2bc;
+  --color-paper: #fbf6ee;
+  --color-cream: #fff8f4;
   --color-ink: #1a2c24;
-  --color-forest: #1a3329;
-  --color-forest-mid: #2d4d3e;
+  --color-forest: #1c3529;
+  --color-forest-mid: #2f4e3c;
   --color-muted: #5c685f;
-  --color-terra: #c2613f;
-  --color-terra-deep: #8d412b;
+  --color-terra: #c45c32;
+  --color-terra-deep: #8d3f24;
+  --color-terra-hover: #753422;
   --color-terra-soft: #f3ddd4;
-  --color-line: rgba(26, 51, 41, 0.14);
+  --color-peach: #f0b09a;
+  --color-line: rgba(28, 53, 41, 0.14);
+  --shadow-soft: 0 18px 40px rgba(28, 53, 41, 0.08);
 }
 
 @layer base {
@@ -25,8 +29,8 @@
   body {
     @apply overflow-x-hidden font-sans font-[420] text-[1.05rem] leading-relaxed tracking-wide text-ink antialiased;
     background:
-      radial-gradient(900px 420px at 8% -10%, rgba(194, 97, 63, 0.08), transparent 60%),
-      radial-gradient(800px 380px at 100% 8%, rgba(45, 77, 62, 0.08), transparent 55%),
+      radial-gradient(900px 420px at 8% -10%, color-mix(in srgb, var(--color-terra) 14%, transparent), transparent 60%),
+      radial-gradient(800px 380px at 100% 8%, color-mix(in srgb, var(--color-forest-mid) 12%, transparent), transparent 55%),
       var(--color-sand);
   }
 
